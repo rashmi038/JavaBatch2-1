@@ -1,11 +1,14 @@
+package anant;
 import java.util.Scanner;
 import java.lang.Math;
 
-public class Assignment2_v3 {
-	static Scanner sc = new Scanner(System.in);
+// point 6
+
+public class BankManagement {
+	Scanner sc = new Scanner(System.in);
 	
 	//Function to check the validation for Card number and Account number
-	static int checkValidation(int numToCheck, String menuName) {
+	int checkValidation(int numToCheck, String menuName) {
 		int result = (int)Math.log10(numToCheck) + 1 ;
 
 		System.out.println("Validating Input...");
@@ -22,7 +25,7 @@ public class Assignment2_v3 {
 	}
 	
 	//Function to handle the loans
-	static void loans() {
+	void loans() {
 		System.out.println("LOANS:");
 		System.out.println("Press 1 for Personal Loan.");
 		System.out.println("Press 2 for Housing Loan.");
@@ -57,7 +60,7 @@ public class Assignment2_v3 {
 	}
 	
 	//Function for all types of accounts
-	static void accounts(String accountName) {
+	void accounts(String accountName) {
 		System.out.println(accountName.toUpperCase() + " ACCOUNT:");
 		
 		int tryAgainOrExit = -1;
@@ -116,7 +119,7 @@ public class Assignment2_v3 {
 	}
 	
 	//Function to setup the cards menu
-	static void cardsMenu() {
+	void cardsMenu() {
 		System.out.println("\nCARDS:");
 		System.out.println("Press 1 for Credit Card.");
 		System.out.println("Press 2 for Debit Card.");
@@ -142,7 +145,7 @@ public class Assignment2_v3 {
 	}
 	
 	//Function for all cards
-	static void cards(String cardName) {
+	void cards(String cardName) {
 		System.out.println("\n" + cardName.toUpperCase() + " CARD:");
 		
 		int tryAgainOrExit = -1;
@@ -197,7 +200,7 @@ public class Assignment2_v3 {
 	}
 	
 	//Function to clear the screen a bit
-    public static void clearScreen() {  
+    public void clearScreen() {  
 
         for (int i = 0; i < 2; ++i) 
         	System.out.println();
@@ -209,9 +212,9 @@ public class Assignment2_v3 {
 		int mainMenuOption = -1;
 		
 		do {
-		
+			BankManagement bankManagement  = new BankManagement();
 			if (mainMenuOption != -1)
-				clearScreen();
+				bankManagement.clearScreen();
 
 			System.out.println("###############Welcome to Anant's Bank.###############");
 			System.out.println("The bank menu is as follows:");
@@ -223,7 +226,7 @@ public class Assignment2_v3 {
 			System.out.println("Press 4 for cards");
 			
 			System.out.println("Enter the menu option to use the Mobile Bank Functions.");
-			mainMenuOption = sc.nextInt();
+			mainMenuOption = bankManagement.sc.nextInt();
 			
 			//main menu
 			switch (mainMenuOption) {
@@ -232,19 +235,19 @@ public class Assignment2_v3 {
 						break;
 				
 				case 1: System.out.println("Taking to Loans section...");
-						loans();
+						bankManagement.loans();
 						break;
 				
 				case 2: System.out.println("Taking to Saving Account section...");
-						accounts("Savings");
+						bankManagement.accounts("Savings");
 						break;
 				
 				case 3: System.out.println("Taking to Current Account section...");
-						accounts("Current");
+						bankManagement.accounts("Current");
 						break;
 				
 				case 4: System.out.println("Taking to Cards section...");
-						cardsMenu();
+						bankManagement.cardsMenu();
 						break;
 						
 				default: System.out.println("Wrong Input.");
