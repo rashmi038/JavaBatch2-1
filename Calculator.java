@@ -9,13 +9,14 @@ public class Calculator extends SimpleCalculator {
 	}
 
 	public static void main(String args[]) {
-		int a, b, c;
+		int a, b;
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter a value:");
 		a = scanner.nextInt();
 		System.out.println("enter b Value:");
 		b = scanner.nextInt();
 		System.out.println("Choices are here:");
+		
 		System.out.println("1. Addition");
 		System.out.println("2. Subtraction");
 		System.out.println("3. Multiplication");
@@ -24,29 +25,33 @@ public class Calculator extends SimpleCalculator {
 		System.out.println("6. Modulous");
 		System.out.println("Enter Your Choice");
 		int operation = scanner.nextInt();
+		
+		int c = 0;
+		Calculator calculatorobject = new Calculator(a, b);
+		
 		switch (operation) {
 		case 1:
-			c = a + b;
+			c = calculatorobject.add();
 			System.out.println("Addition = " + c);
 			break;
 		case 2:
-			c = a - b;
+			c = calculatorobject.sub();
 			System.out.println("Subtraction = " + c);
 			break;
 		case 3:
-			c = a * b;
+			c = calculatorobject.mul();
 			System.out.println("Multiplication = " + c);
 			break;
 		case 4:
-			c = a / b;
+			c = calculatorobject.div();
 			System.out.println("Division = " + c);
 			break;
 		case 5:
-			c = a * 100 / b;
+			c = calculatorobject.percentage();
 			System.out.println("Percentage = " + c);
 			break;
 		case 6:
-			c = a % b;
+			c = calculatorobject.mod();
 			System.out.println("Modulous = " + c);
 			break;
 		default:
@@ -54,4 +59,5 @@ public class Calculator extends SimpleCalculator {
 			scanner.close();
 		}
 	}
+
 }
